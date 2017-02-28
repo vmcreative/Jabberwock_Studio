@@ -6,8 +6,6 @@
     <meta name="description" content="Studio">
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
     <script src="https://rawgit.com/atomicguy/aframe-fence-component/master/dist/aframe-fence-component.min.js"></script>
-    <script src="https://github.com/nylki/aframe-fit-texture-component/raw/master/dist/aframe-fit-texture-component.min.js"></script>
-</head>
   </head>
   <body>
     <a-scene>
@@ -20,7 +18,7 @@
         <a-mixin id="wall" geometry="primitive: plane; height: 2.664" material="side: double"></a-mixin>
         <a-mixin id="flor" geometry="primitive: plane; width: 5; height: 3" material="src: #floor_1; repeat: 3 1.8; side: double" rotation="-90 0 0"></a-mixin>
         <a-mixin id="clng" geometry="primitive: plane; width: 5; height: 3"  material="color: #FFF; side: double" rotation="-90 0 0"></a-mixin>
-        <a-mixin id="pstr" geometry="primitive: plane" rotation="0 -180 0" fit-texture></a-mixin>
+        <a-mixin id="pstr" geometry="primitive: plane" rotation="0 -180 0"></a-mixin>
         <a-mixin id="blck" geometry="primitive: box" material="color: #111111"></a-mixin>
         <a-mixin id="whte" geometry="primitive: box" material="color: #e0e0e0"></a-mixin>
         <a-mixin id="bras" geometry="primitive: box" material="color: #a38900"></a-mixin>
@@ -179,26 +177,26 @@
         </a-entity>
         <!-- POSTERS -->
         <a-entity id="posters" position="0 1.332 -1.4980">
-          <a-entity id="poster_01" mixin="pstr" material="src: #p_01" scale="0.75 0.75 0" position="-2.05  0.98 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_02" mixin="pstr" material="src: #p_02" scale="1.25 1.25 0" position="-1.38  0.20 0" rotation="0 0  2"></a-entity>
-          <a-entity id="poster_03" mixin="pstr" material="src: #p_03" scale="0.50 0.50 0" position="-2.20 -0.78 0" rotation="0 0 -2"></a-entity>
-          <a-entity id="poster_04" mixin="pstr" material="src: #p_04" scale="1.25 1.25 0" position="-0.05 -0.05 0" rotation="0 0 -3"></a-entity>
-          <a-entity id="poster_05" mixin="pstr" material="src: #p_05" scale="0.75 0.75 0" position="-1.65 -0.70 0" rotation="0 0  1"></a-entity>
-          <a-entity id="poster_06" mixin="pstr" material="src: #p_06" scale="0.50 0.50 0" position="-1.30  1.00 0" rotation="0 0 -1"></a-entity>
-          <a-entity id="poster_07" mixin="pstr" material="src: #p_07" scale="1.25 1.25 0" position=" 1.80  0.50 0" rotation="0 0  2"></a-entity>
-          <a-entity id="poster_08" mixin="pstr" material="src: #p_08" scale="0.50 0.50 0" position="-2.27  0.20 0" rotation="0 0  1"></a-entity>
-          <a-entity id="poster_09" mixin="pstr" material="src: #p_09" scale="0.75 0.75 0" position="-0.45  0.85 0" rotation="0 0  3"></a-entity>
-          <a-entity id="poster_10" mixin="pstr" material="src: #p_10" scale="0.75 0.75 0" position=" 0.25  0.85 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_11" mixin="pstr" material="src: #p_11" scale="0.75 0.75 0" position=" 2.15 -0.60 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_12" mixin="pstr" material="src: #p_12" scale="0.75 0.75 0" position="-0.95 -0.85 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_13" mixin="pstr" material="src: #p_13" scale="0.75 0.75 0" position=" 1.35 -0.65 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_14" mixin="pstr" material="src: #p_14" scale="0.50 0.50 0" position=" 0.93  0.15 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_15" mixin="pstr" material="src: #p_15" scale="0.50 0.50 0" position=" 0.90  0.78 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_16" mixin="pstr" material="src: #p_16" scale="0.50 0.50 0" position=" 0.55 -0.80 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_17" mixin="pstr" material="src: #p_17" scale="0.75 0.75 0" position="-0.15 -0.82 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_18" mixin="pstr" material="src: #p_18" scale="0.25 0.25 0" position="-2.25 -0.23 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_19" mixin="pstr" material="src: #p_19" scale="0.25 0.25 0" position="-1.00 -0.45 0" rotation="0 0  0"></a-entity>
-          <a-entity id="poster_20" mixin="pstr" material="src: #p_20" scale="0.25 0.25 0" position=" 0.77 -0.35 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_01" mixin="pstr" geometry="width: 1.0000; height: 0.5556" material="src: #p_01" scale="0.75 0.75 0" position="-2.05  0.98 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_02" mixin="pstr" geometry="width: 1.0000; height: 0.7222" material="src: #p_02" scale="1.25 1.25 0" position="-1.38  0.20 0" rotation="0 0  2"></a-entity>
+          <a-entity id="poster_03" mixin="pstr" geometry="width: 0.7000; height: 1.0000" material="src: #p_03" scale="0.50 0.50 0" position="-2.20 -0.78 0" rotation="0 0 -2"></a-entity>
+          <a-entity id="poster_04" mixin="pstr" geometry="width: 1.0000; height: 0.7222" material="src: #p_04" scale="1.25 1.25 0" position="-0.05 -0.05 0" rotation="0 0 -3"></a-entity>
+          <a-entity id="poster_05" mixin="pstr" geometry="width: 0.7778; height: 1.0000" material="src: #p_05" scale="0.75 0.75 0" position="-1.65 -0.70 0" rotation="0 0  1"></a-entity>
+          <a-entity id="poster_06" mixin="pstr" geometry="width: 1.0000; height: 1.0000" material="src: #p_06" scale="0.50 0.50 0" position="-1.30  1.00 0" rotation="0 0 -1"></a-entity>
+          <a-entity id="poster_07" mixin="pstr" geometry="width: 0.8000; height: 1.0000" material="src: #p_07" scale="1.25 1.25 0" position=" 1.80  0.50 0" rotation="0 0  2"></a-entity>
+          <a-entity id="poster_08" mixin="pstr" geometry="width: 0.7222; height: 1.0000" material="src: #p_08" scale="0.50 0.50 0" position="-2.27  0.20 0" rotation="0 0  1"></a-entity>
+          <a-entity id="poster_09" mixin="pstr" geometry="width: 0.7500; height: 1.0000" material="src: #p_09" scale="0.75 0.75 0" position="-0.45  0.85 0" rotation="0 0  3"></a-entity>
+          <a-entity id="poster_10" mixin="pstr" geometry="width: 0.7222; height: 1.0000" material="src: #p_10" scale="0.75 0.75 0" position=" 0.25  0.85 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_11" mixin="pstr" geometry="width: 0.6667; height: 1.0000" material="src: #p_11" scale="0.75 0.75 0" position=" 2.15 -0.60 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_12" mixin="pstr" geometry="width: 1.0000; height: 0.5556" material="src: #p_12" scale="0.75 0.75 0" position="-0.95 -0.85 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_13" mixin="pstr" geometry="width: 1.0000; height: 1.0000" material="src: #p_13" scale="0.75 0.75 0" position=" 1.35 -0.65 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_14" mixin="pstr" geometry="width: 1.0000; height: 1.0000" material="src: #p_14" scale="0.50 0.50 0" position=" 0.93  0.15 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_15" mixin="pstr" geometry="width: 1.0000; height: 1.0000" material="src: #p_15" scale="0.50 0.50 0" position=" 0.90  0.78 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_16" mixin="pstr" geometry="width: 1.0000; height: 0.7444" material="src: #p_16" scale="0.50 0.50 0" position=" 0.55 -0.80 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_17" mixin="pstr" geometry="width: 1.0000; height: 0.6667" material="src: #p_17" scale="0.75 0.75 0" position="-0.15 -0.82 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_18" mixin="pstr" geometry="width: 1.0000; height: 1.0000" material="src: #p_18" scale="0.25 0.25 0" position="-2.25 -0.23 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_19" mixin="pstr" geometry="width: 1.0000; height: 1.0000" material="src: #p_19" scale="0.25 0.25 0" position="-1.00 -0.45 0" rotation="0 0  0"></a-entity>
+          <a-entity id="poster_20" mixin="pstr" geometry="width: 1.0000; height: 1.0000" material="src: #p_20" scale="0.25 0.25 0" position=" 0.77 -0.35 0" rotation="0 0  0"></a-entity>
         </a-entity>
         <!-- WALL TEXT -->
         <a-entity id="didactic" geometry="width: 0.8000; height: 0.8000" material="src: #didactic_1" scale="1.8 1.8 0" position="2.4980 1.7 -0.3" rotation="0 90 0"></a-entity>
