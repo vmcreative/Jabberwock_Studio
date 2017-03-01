@@ -21,6 +21,7 @@
           <!-- define object properties -->
         <a-mixin id="wall" geometry="primitive: plane; height: 2.664" material="side: double"></a-mixin>
         <a-mixin id="flor" geometry="primitive: plane; width: 5; height: 3" material="src: #floor_1; repeat: 3 1.8; side: double" rotation="-90 0 0"></a-mixin>
+        <a-mixin id="mark" geometry="primitive: plane" rotation="-180 0 0"></a-mixin>
         <a-mixin id="clng" geometry="primitive: plane; width: 5; height: 3"  material="color: #FFF; side: double" rotation="-90 0 0"></a-mixin>
         <a-mixin id="pstr" geometry="primitive: plane" rotation="0 -180 0" billboard></a-mixin>
         <a-mixin id="blck" geometry="primitive: box" material="color: #111111"></a-mixin>
@@ -32,13 +33,14 @@
         <a-mixin id="bulb" geometry="primitive: sphere" material="color: #feffde; shader: flat"></a-mixin>
 
         <!-- TEXTURES -->
-        <img id="skybox_1" src="https://vmcreative.github.io/Jabberwock_Studio/textures/skybox_1.jpg" crossorigin="anonymous">
-        <img id="floor_1" src="https://vmcreative.github.io/Jabberwock_Studio/textures/floor_1.jpg" crossorigin="anonymous">
-        <img id="wall_1" src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1.jpg" crossorigin="anonymous">
-        <img id="wall_1a" src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1a.jpg" crossorigin="anonymous">
-        <img id="wall_1b" src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1b.jpg" crossorigin="anonymous">
-        <img id="wall_1c" src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1c.jpg" crossorigin="anonymous">
+        <img id="skybox_1"   src="https://vmcreative.github.io/Jabberwock_Studio/textures/skybox_1.jpg"   crossorigin="anonymous">
+        <img id="floor_1"    src="https://vmcreative.github.io/Jabberwock_Studio/textures/floor_1.jpg"    crossorigin="anonymous">
+        <img id="wall_1"     src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1.jpg"     crossorigin="anonymous">
+        <img id="wall_1a"    src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1a.jpg"    crossorigin="anonymous">
+        <img id="wall_1b"    src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1b.jpg"    crossorigin="anonymous">
+        <img id="wall_1c"    src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1c.jpg"    crossorigin="anonymous">
         <img id="didactic_1" src="https://vmcreative.github.io/Jabberwock_Studio/textures/didactic_1.png" crossorigin="anonymous">
+        <img id="x-mark"     src="https://vmcreative.github.io/Jabberwock_Studio/textures/x-mark.png"     crossorigin="anonymous">
         <!-- POSTERS -->
         <img id="p_01" src="https://vmcreative.github.io/Jabberwock_Studio/posters/01.jpg" crossorigin="anonymous">
         <img id="p_02" src="https://vmcreative.github.io/Jabberwock_Studio/posters/02.jpg" crossorigin="anonymous">
@@ -75,7 +77,9 @@
         <!-- ENVIRONMENT -->
         <a-sky src="#skybox_1" scale="0 0 0" rotation="0 0 0"></a-sky>
         <!-- ARCHITECTURE -->
-        <a-entity mixin="flor"></a-entity>
+        <a-entity mixin="flor">
+          <a-entity mixin="mark" geometry="width: 0.127; height: 0.127" position="0 .1 0"></a-entity>
+        </a-entity>
         <a-entity mixin="clng" position="0 2.664 0"></a-entity>
         <a-entity id="walls" position="0 1.332 0">
           <a-entity mixin="wall" geometry="width: 5" material="src: #wall_1; repeat: 12 1" position="0 0 1.5"></a-entity>
