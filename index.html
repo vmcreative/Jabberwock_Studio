@@ -6,6 +6,7 @@
     <meta name="description" content="Studio">
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
     <script src="https://rawgit.com/atomicguy/aframe-fence-component/master/dist/aframe-fence-component.min.js"></script>
+    <script src="https://rawgit.com/blairmacintyre/aframe-look-at-billboard-component/master/dist/aframe-look-at-billboard-component.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -18,7 +19,7 @@
         <a-mixin id="wall" geometry="primitive: plane; height: 2.664" material="side: double"></a-mixin>
         <a-mixin id="flor" geometry="primitive: plane; width: 5; height: 3" material="src: #floor_1; repeat: 3 1.8; side: double" rotation="-90 0 0"></a-mixin>
         <a-mixin id="clng" geometry="primitive: plane; width: 5; height: 3"  material="color: #FFF; side: double" rotation="-90 0 0"></a-mixin>
-        <a-mixin id="pstr" geometry="primitive: plane" rotation="0 -180 0"></a-mixin>
+        <a-mixin id="pstr" geometry="primitive: plane" rotation="0 -180 0" billboard></a-mixin>
         <a-mixin id="blck" geometry="primitive: box" material="color: #111111"></a-mixin>
         <a-mixin id="whte" geometry="primitive: box" material="color: #e0e0e0"></a-mixin>
         <a-mixin id="bras" geometry="primitive: box" material="color: #a38900"></a-mixin>
@@ -176,7 +177,7 @@
           </a-entity>
         </a-entity>
         <!-- POSTERS -->
-        <a-entity id="posters" position="0 1.332 -1.4980">
+        <a-entity id="posters" position="0 1.332 -1.260">
           <a-entity id="poster_01" mixin="pstr" geometry="width: 1.0000; height: 0.5556" material="src: #p_01" scale="0.75 0.75 0" position="-2.05  0.98 0" rotation="0 0  0"></a-entity>
           <a-entity id="poster_02" mixin="pstr" geometry="width: 1.0000; height: 0.7222" material="src: #p_02" scale="1.25 1.25 0" position="-1.38  0.20 0" rotation="0 0  2"></a-entity>
           <a-entity id="poster_03" mixin="pstr" geometry="width: 0.7000; height: 1.0000" material="src: #p_03" scale="0.50 0.50 0" position="-2.20 -0.78 0" rotation="0 0 -2"></a-entity>
@@ -199,7 +200,7 @@
           <a-entity id="poster_20" mixin="pstr" geometry="width: 1.0000; height: 1.0000" material="src: #p_20" scale="0.25 0.25 0" position=" 0.77 -0.35 0" rotation="0 0  0"></a-entity>
         </a-entity>
         <!-- WALL TEXT -->
-        <a-entity id="didactic" geometry="width: 0.8000; height: 0.8000" material="src: #didactic_1" scale="1.8 1.8 0" position="2.4980 1.7 -0.3" rotation="0 90 0"></a-entity>
+        <a-entity id="didactic" geometry="width: 0.8000; height: 0.8000" material="src: #didactic_1" scale="1.8 1.8 0" position="2.4980 1.7 0" rotation="0 90 0"></a-entity>
 
 
       </a-entity>
