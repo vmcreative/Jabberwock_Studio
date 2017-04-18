@@ -5,23 +5,25 @@
     <title>Jabberwock Studio</title>
     <meta name="description" content="Jabberwock Studio">
 
+    <link rel="stylesheet" href="../../css/scene.css">
+
     <!-- RESOURCES -->
-    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/atomicguy/aframe-fence-component/master/dist/aframe-fence-component.min.js"></script>
-    <script src="https://rawgit.com/blairmacintyre/aframe-look-at-billboard-component/master/dist/aframe-look-at-billboard-component.min.js"></script>
-    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+    <script src="https://aframe.io/releases/0.5.0/aframe.js"></script>
+    <script src="../../js/aframe/aframe-extras.controls.js"></script>
+    <script src="../../js/aframe/aframe-fence-component.js"></script>
+    <script src="../../js/aframe/aframe-look-at-billboard-component.js"></script>
+
   </head>
   <body>
     <a-scene vr-mode-ui="enabled: false">
       <a-assets>
         <!-- MIXINS -->
           <!-- define postitional and merged entity properties -->
-        <a-mixin id="trgt" geometry="buffer: false; skipCache: true; height: 0; width: 0; depth: 0"></a-mixin>
-        <a-mixin id="mrge" geometry="buffer: false; skipCache: true"></a-mixin>
+        <a-mixin id="trgt" geometry="height: 0; width: 0; depth: 0"></a-mixin>
           <!-- define object properties -->
         <a-mixin id="wall" geometry="primitive: plane; height: 2.664" material="side: double"></a-mixin>
         <a-mixin id="flor" geometry="primitive: plane; width: 5; height: 3" material="src: #floor_1; repeat: 3 1.8; side: double" rotation="-90 0 0"></a-mixin>
-        <a-mixin id="mark" geometry="primitive: circle; radius:0.06" rotation="-90 0 0" material="color: white; opacity:0.6"></a-mixin>
+        <a-mixin id="mark" geometry="primitive: circle; radius:0.06" checkpoint="offset: 0 1.6 0" rotation="-90 0 0" material="color: white; opacity:0.6"></a-mixin>
         <a-mixin id="clng" geometry="primitive: plane; width: 5; height: 3"  material="color: #FFF; side: double" rotation="-90 0 0"></a-mixin>
         <a-mixin id="pstr" geometry="primitive: plane" rotation="0 -180 0" billboard></a-mixin>
         <a-mixin id="blck" geometry="primitive: box" material="color: #111111"></a-mixin>
@@ -33,54 +35,44 @@
         <a-mixin id="bulb" geometry="primitive: sphere" material="color: #feffde; shader: flat"></a-mixin>
 
         <!-- TEXTURES -->
-        <img id="skybox_1"   src="https://vmcreative.github.io/Jabberwock_Studio/textures/skybox_1.jpg"   crossorigin="anonymous">
-        <img id="floor_1"    src="https://vmcreative.github.io/Jabberwock_Studio/textures/floor_1.jpg"    crossorigin="anonymous">
-        <img id="wall_1"     src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1.jpg"     crossorigin="anonymous">
-        <img id="wall_1a"    src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1a.jpg"    crossorigin="anonymous">
-        <img id="wall_1b"    src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1b.jpg"    crossorigin="anonymous">
-        <img id="wall_1c"    src="https://vmcreative.github.io/Jabberwock_Studio/textures/wall_1c.jpg"    crossorigin="anonymous">
-        <img id="didactic_1" src="https://vmcreative.github.io/Jabberwock_Studio/textures/didactic_1.png" crossorigin="anonymous">
-        <img id="x-mark"     src="https://vmcreative.github.io/Jabberwock_Studio/textures/x-mark.png"     crossorigin="anonymous">
+        <img id="skybox_1"   src="textures/skybox_1.jpg"   crossorigin="anonymous">
+        <img id="floor_1"    src="textures/floor_1.jpg"    crossorigin="anonymous">
+        <img id="wall_1"     src="textures/wall_1.jpg"     crossorigin="anonymous">
+        <img id="wall_1a"    src="textures/wall_1a.jpg"    crossorigin="anonymous">
+        <img id="wall_1b"    src="textures/wall_1b.jpg"    crossorigin="anonymous">
+        <img id="wall_1c"    src="textures/wall_1c.jpg"    crossorigin="anonymous">
+        <img id="didactic_1" src="textures/didactic_1.png" crossorigin="anonymous">
+        <img id="x-mark"     src="textures/x-mark.png"     crossorigin="anonymous">
         <!-- POSTERS -->
-        <img id="p_01" src="https://vmcreative.github.io/Jabberwock_Studio/posters/01.jpg" crossorigin="anonymous">
-        <img id="p_02" src="https://vmcreative.github.io/Jabberwock_Studio/posters/02.jpg" crossorigin="anonymous">
-        <img id="p_03" src="https://vmcreative.github.io/Jabberwock_Studio/posters/03.jpg" crossorigin="anonymous">
-        <img id="p_04" src="https://vmcreative.github.io/Jabberwock_Studio/posters/04.jpg" crossorigin="anonymous">
-        <img id="p_05" src="https://vmcreative.github.io/Jabberwock_Studio/posters/05.jpg" crossorigin="anonymous">
-        <img id="p_06" src="https://vmcreative.github.io/Jabberwock_Studio/posters/06.jpg" crossorigin="anonymous">
-        <img id="p_07" src="https://vmcreative.github.io/Jabberwock_Studio/posters/07.jpg" crossorigin="anonymous">
-        <img id="p_08" src="https://vmcreative.github.io/Jabberwock_Studio/posters/08.jpg" crossorigin="anonymous">
-        <img id="p_09" src="https://vmcreative.github.io/Jabberwock_Studio/posters/09.jpg" crossorigin="anonymous">
-        <img id="p_10" src="https://vmcreative.github.io/Jabberwock_Studio/posters/10.jpg" crossorigin="anonymous">
-        <img id="p_11" src="https://vmcreative.github.io/Jabberwock_Studio/posters/11.jpg" crossorigin="anonymous">
-        <img id="p_12" src="https://vmcreative.github.io/Jabberwock_Studio/posters/12.jpg" crossorigin="anonymous">
-        <img id="p_13" src="https://vmcreative.github.io/Jabberwock_Studio/posters/13.jpg" crossorigin="anonymous">
-        <img id="p_14" src="https://vmcreative.github.io/Jabberwock_Studio/posters/14.jpg" crossorigin="anonymous">
-        <img id="p_15" src="https://vmcreative.github.io/Jabberwock_Studio/posters/15.jpg" crossorigin="anonymous">
-        <img id="p_16" src="https://vmcreative.github.io/Jabberwock_Studio/posters/16.jpg" crossorigin="anonymous">
-        <img id="p_17" src="https://vmcreative.github.io/Jabberwock_Studio/posters/17.jpg" crossorigin="anonymous">
-        <img id="p_18" src="https://vmcreative.github.io/Jabberwock_Studio/posters/18.jpg" crossorigin="anonymous">
-        <img id="p_19" src="https://vmcreative.github.io/Jabberwock_Studio/posters/19.jpg" crossorigin="anonymous">
-        <img id="p_20" src="https://vmcreative.github.io/Jabberwock_Studio/posters/20.jpg" crossorigin="anonymous">
+        <img id="p_01" src="posters/01.jpg" crossorigin="anonymous">
+        <img id="p_02" src="posters/02.jpg" crossorigin="anonymous">
+        <img id="p_03" src="posters/03.jpg" crossorigin="anonymous">
+        <img id="p_04" src="posters/04.jpg" crossorigin="anonymous">
+        <img id="p_05" src="posters/05.jpg" crossorigin="anonymous">
+        <img id="p_06" src="posters/06.jpg" crossorigin="anonymous">
+        <img id="p_07" src="posters/07.jpg" crossorigin="anonymous">
+        <img id="p_08" src="posters/08.jpg" crossorigin="anonymous">
+        <img id="p_09" src="posters/09.jpg" crossorigin="anonymous">
+        <img id="p_10" src="posters/10.jpg" crossorigin="anonymous">
+        <img id="p_11" src="posters/11.jpg" crossorigin="anonymous">
+        <img id="p_12" src="posters/12.jpg" crossorigin="anonymous">
+        <img id="p_13" src="posters/13.jpg" crossorigin="anonymous">
+        <img id="p_14" src="posters/14.jpg" crossorigin="anonymous">
+        <img id="p_15" src="posters/15.jpg" crossorigin="anonymous">
+        <img id="p_16" src="posters/16.jpg" crossorigin="anonymous">
+        <img id="p_17" src="posters/17.jpg" crossorigin="anonymous">
+        <img id="p_18" src="posters/18.jpg" crossorigin="anonymous">
+        <img id="p_19" src="posters/19.jpg" crossorigin="anonymous">
+        <img id="p_20" src="posters/20.jpg" crossorigin="anonymous">
 
       </a-assets>
-      <!-- CAMERA SETTINGS -->
-      <a-camera fence="width:3.5; depth:1.5; x0:0; z0:0;">
-        <a-entity cursor="maxDistance: 10; timeout: 500"
-          position="0 0 -0.15"
-          scale="0.002 0.002 0"
-          geometry="primitive: ring"
-          material="color: gray; opacity: 0.5; shader: flat">
-        </a-entity>
-      </a-camera>
+
+      <!-- ENVIRONMENT -->
       <a-entity id="room" position="0 0 -0.5">
-        <!-- ENVIRONMENT -->
-        <a-sky src="#skybox_1" scale="0 0 0" rotation="0 0 0"></a-sky>
+        <a-sky src="#skybox_1"></a-sky>
+
         <!-- ARCHITECTURE -->
         <a-entity mixin="flor"></a-entity>
-        <!-- <a-entity id="m_1" mixin="mark" position="-1.4 0.0020 -0.1"></a-entity>
-        <a-entity id="m_2" mixin="mark" position="0 0.0020 0.5"></a-entity>
-        <a-entity id="m_3" mixin="mark" position="1.4 0.0020 -0.1"></a-entity> -->
         <a-entity mixin="clng" position="0 2.664 0"></a-entity>
         <a-entity id="walls" position="0 1.332 0">
           <a-entity mixin="wall" geometry="width: 5" material="src: #wall_1; repeat: 12 1" position="0 0 1.5"></a-entity>
@@ -94,44 +86,46 @@
             <a-entity mixin="wall" geometry="width: 0.61" material="src: #wall_1c" position="1.195 0 0"></a-entity>
           </a-entity>
         </a-entity>
-        <a-entity id="window_frame" mixin="whte trgt" position="-2.5 1.5096 0"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #window_frame; width: 0.0508; height: 1.7760; depth: 0.1016" position="0.0000  0.0000  0.8889"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #window_frame; width: 0.0508; height: 1.7760; depth: 0.1016" position="0.0000  0.0000  0.0000"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #window_frame; width: 0.0508; height: 1.7760; depth: 0.1016" position="0.0000  0.0000 -0.8889"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #window_frame; width: 0.0508; height: 0.1016; depth: 1.8816" position="0.0000  0.8889  0.0000"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #window_frame; width: 0.0508; height: 0.1016; depth: 1.8816" position="0.0000  0.0000  0.0000"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #window_frame; width: 0.1500; height: 0.1016; depth: 1.8816" position="0.0496 -0.8889  0.0000"></a-entity>
+        <a-entity id="window_frame" mixin="whte trgt" position="-2.5 1.5096 0">
+          <a-entity mixin="whte" geometry=" width: 0.0508; height: 1.7760; depth: 0.1016" position="0.0000  0.0000  0.8889"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 0.0508; height: 1.7760; depth: 0.1016" position="0.0000  0.0000  0.0000"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 0.0508; height: 1.7760; depth: 0.1016" position="0.0000  0.0000 -0.8889"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 0.0508; height: 0.1016; depth: 1.8816" position="0.0000  0.8889  0.0000"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 0.0508; height: 0.1016; depth: 1.8816" position="0.0000  0.0000  0.0000"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 0.1500; height: 0.1016; depth: 1.8816" position="0.0496 -0.8889  0.0000"></a-entity>
+        </a-entity>
+
         <a-entity id="floor_trim" mixin="whte trgt" position="0 0.0762 0"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #floor_trim; width: 5.0000; height: 0.1530; depth: 0.0254" position=" 0.0000 0  1.4873"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #floor_trim; width: 5.0000; height: 0.1530; depth: 0.0254" position=" 0.0000 0 -1.4873"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #floor_trim; width: 0.0254; height: 0.1530; depth: 3.0000" position=" 2.4873 0  0.0000"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #floor_trim; width: 0.0254; height: 0.1530; depth: 3.0000" position="-2.4873 0  0.0000"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 5.0000; height: 0.1530; depth: 0.0254" position=" 0.0000 0  1.4873"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 5.0000; height: 0.1530; depth: 0.0254" position=" 0.0000 0 -1.4873"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 0.0254; height: 0.1530; depth: 3.0000" position=" 2.4873 0  0.0000"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 0.0254; height: 0.1530; depth: 3.0000" position="-2.4873 0  0.0000"></a-entity>
         <a-entity id="ceiling_trim" mixin="whte trgt" position="0 2.6386 0"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #ceiling_trim; width: 5.0000; height: 0.0508; depth: 0.0254" position=" 0.0000 0  1.4873"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #ceiling_trim; width: 5.0000; height: 0.0508; depth: 0.0254" position=" 0.0000 0 -1.4873"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #ceiling_trim; width: 0.0254; height: 0.0508; depth: 3.0000" position=" 2.4873 0  0.0000"></a-entity>
-          <a-entity mixin="whte mrge" geometry="mergeTo: #ceiling_trim; width: 0.0254; height: 0.0508; depth: 3.0000" position="-2.4873 0  0.0000"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 5.0000; height: 0.0508; depth: 0.0254" position=" 0.0000 0  1.4873"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 5.0000; height: 0.0508; depth: 0.0254" position=" 0.0000 0 -1.4873"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 0.0254; height: 0.0508; depth: 3.0000" position=" 2.4873 0  0.0000"></a-entity>
+          <a-entity mixin="whte" geometry=" width: 0.0254; height: 0.0508; depth: 3.0000" position="-2.4873 0  0.0000"></a-entity>
         <!-- FURNITURE -->
         <a-entity  position=" 2.044  0  1.044" rotation="0 45 0">
           <a-entity id="desk" mixin="wood trgt"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 1.1938; height: 0.0254; depth: 0.7620" position=" 0.0000  0.7366  0.0000"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 1.1430; height: 0.0254; depth: 0.3810" position=" 0.0000  0.1397  0.1651"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.2540; height: 0.6096; depth: 0.3312" position=" 0.4445  0.4318 -0.1905"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.2540; height: 0.6096; depth: 0.3312" position="-0.4445  0.4318 -0.1905"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0508; height: 0.7366; depth: 0.0254" position=" 0.5465  0.3683 -0.3685"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0508; height: 0.7366; depth: 0.0254" position="-0.5465  0.3683 -0.3685"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0508; height: 0.7366; depth: 0.0254" position=" 0.3433  0.3683 -0.3685"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0508; height: 0.7366; depth: 0.0254" position="-0.3433  0.3683 -0.3685"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0254; height: 0.7366; depth: 0.0508" position=" 0.5715  0.3683 -0.0508"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0254; height: 0.7366; depth: 0.0508" position="-0.5715  0.3683 -0.0508"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0254; height: 0.7366; depth: 0.0508" position=" 0.3175  0.3683 -0.0508"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0254; height: 0.7366; depth: 0.0508" position="-0.3175  0.3683 -0.0508"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0508; height: 0.7366; depth: 0.0254" position=" 0.2032  0.3683  0.3685"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #desk; width: 0.0508; height: 0.7366; depth: 0.0254" position="-0.2032  0.3683  0.3685"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 1.1938; height: 0.0254; depth: 0.7620" position=" 0.0000  0.7366  0.0000"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 1.1430; height: 0.0254; depth: 0.3810" position=" 0.0000  0.1397  0.1651"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.2540; height: 0.6096; depth: 0.3312" position=" 0.4445  0.4318 -0.1905"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.2540; height: 0.6096; depth: 0.3312" position="-0.4445  0.4318 -0.1905"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.7366; depth: 0.0254" position=" 0.5465  0.3683 -0.3685"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.7366; depth: 0.0254" position="-0.5465  0.3683 -0.3685"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.7366; depth: 0.0254" position=" 0.3433  0.3683 -0.3685"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.7366; depth: 0.0254" position="-0.3433  0.3683 -0.3685"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0254; height: 0.7366; depth: 0.0508" position=" 0.5715  0.3683 -0.0508"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0254; height: 0.7366; depth: 0.0508" position="-0.5715  0.3683 -0.0508"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0254; height: 0.7366; depth: 0.0508" position=" 0.3175  0.3683 -0.0508"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0254; height: 0.7366; depth: 0.0508" position="-0.3175  0.3683 -0.0508"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.7366; depth: 0.0254" position=" 0.2032  0.3683  0.3685"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.7366; depth: 0.0254" position="-0.2032  0.3683  0.3685"></a-entity>
           <a-entity id=lamp mixin="blck metl trgt"></a-entity>
-            <a-entity mixin="blck mrge" geometry="mergeTo: #lamp; width: 0.0300; height: 0.0508; depth: 0.0762" position=" 0.0000  0.7366  0.3600"></a-entity>
-            <a-entity mixin="blck mrge" geometry="mergeTo: #lamp; width: 0.0127; height: 0.4064; depth: 0.0381" position=" 0.0000  0.9250  0.4350" rotation="20 0 0"></a-entity>
-            <a-entity mixin="blck mrge" geometry="mergeTo: #lamp; width: 0.0127; height: 0.0381; depth: 0.4064" position=" 0.0000  1.2245  0.3545" rotation="40 0 0"></a-entity>
+            <a-entity mixin="blck" geometry=" width: 0.0300; height: 0.0508; depth: 0.0762" position=" 0.0000  0.7366  0.3600"></a-entity>
+            <a-entity mixin="blck" geometry=" width: 0.0127; height: 0.4064; depth: 0.0381" position=" 0.0000  0.9250  0.4350" rotation="20 0 0"></a-entity>
+            <a-entity mixin="blck" geometry=" width: 0.0127; height: 0.0381; depth: 0.4064" position=" 0.0000  1.2245  0.3545" rotation="40 0 0"></a-entity>
           <a-entity position="0.0000 1.3000 0.1500" rotation="20 0 0">
             <a-entity mixin="blck metl" geometry="primitive: cone; height: 0.0889; radius-bottom: 0.0889; radius-top: 0.0381"></a-entity>
             <a-entity mixin="blck metl" geometry="primitive: cone; height: 0.0889; radius-bottom: 0.0381; radius-top: 0.0317" position="0.0000 0.0889 0.0000"></a-entity>
@@ -140,19 +134,19 @@
         </a-entity>
         <a-entity position=" 2.2700  0 -0.2500">
           <a-entity id="bench" mixin="wood trgt"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #bench; width: 0.3302; height: 0.0762; depth: 0.7112" position=" 0.0000  0.4064  0.0000"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #bench; width: 0.0508; height: 0.4445; depth: 0.0508" position=" 0.1429  0.2223  0.3334"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #bench; width: 0.0508; height: 0.4445; depth: 0.0508" position=" 0.1429  0.2223 -0.3334"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #bench; width: 0.0508; height: 0.4445; depth: 0.0508" position="-0.1429  0.2223  0.3334"></a-entity>
-            <a-entity mixin="wood mrge" geometry="mergeTo: #bench; width: 0.0508; height: 0.4445; depth: 0.0508" position="-0.1429  0.2223 -0.3334"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.3302; height: 0.0762; depth: 0.7112" position=" 0.0000  0.4064  0.0000"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.4445; depth: 0.0508" position=" 0.1429  0.2223  0.3334"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.4445; depth: 0.0508" position=" 0.1429  0.2223 -0.3334"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.4445; depth: 0.0508" position="-0.1429  0.2223  0.3334"></a-entity>
+            <a-entity mixin="wood" geometry=" width: 0.0508; height: 0.4445; depth: 0.0508" position="-0.1429  0.2223 -0.3334"></a-entity>
             <a-entity mixin="blck" geometry="width: 0.3429; height: 0.0508; depth: 0.7620" position=" 0.0000  0.4445  0.0000"></a-entity>
         </a-entity>
         <a-entity position="-0.8000  2.6550  0" rotation="180 180 0">
           <a-entity id="track_1" mixin="whte metl trgt"></a-entity>
-            <a-entity mixin="whte metl mrge" geometry="mergeTo: #track_1; width: 1.0000; height: 0.0254; depth: 0.0762"></a-entity>
-            <a-entity mixin="whte metl mrge" geometry="mergeTo: #track_1; primitive: cylinder; radius: 0.0127; height: 0.1016" position="-0.4400 0.0635 0.0000"></a-entity>
-            <a-entity mixin="whte metl mrge" geometry="mergeTo: #track_1; primitive: cylinder; radius: 0.0127; height: 0.1016" position=" 0.0000 0.0635 0.0000"></a-entity>
-            <a-entity mixin="whte metl mrge" geometry="mergeTo: #track_1; primitive: cylinder; radius: 0.0127; height: 0.1016" position=" 0.4400 0.0635 0.0000"></a-entity>
+            <a-entity mixin="whte metl" geometry=" width: 1.0000; height: 0.0254; depth: 0.0762"></a-entity>
+            <a-entity mixin="whte metl" geometry=" primitive: cylinder; radius: 0.0127; height: 0.1016" position="-0.4400 0.0635 0.0000"></a-entity>
+            <a-entity mixin="whte metl" geometry=" primitive: cylinder; radius: 0.0127; height: 0.1016" position=" 0.0000 0.0635 0.0000"></a-entity>
+            <a-entity mixin="whte metl" geometry=" primitive: cylinder; radius: 0.0127; height: 0.1016" position=" 0.4400 0.0635 0.0000"></a-entity>
           <a-entity id="track_lamp_1" position="-0.4400 0.1500 -0.0700" rotation="115 0 0">
             <a-entity mixin="whte metl" geometry="primitive: cone; height: 0.0889; radius-bottom: 0.0889; radius-top: 0.0381"></a-entity>
             <a-entity mixin="whte metl" geometry="primitive: cone; height: 0.0889; radius-bottom: 0.0381; radius-top: 0.0317" position="0.0000 0.0889 0.0000"></a-entity>
@@ -171,10 +165,10 @@
         </a-entity>
         <a-entity position=" 0.8000  2.6550  0" rotation="180 180 0">
           <a-entity id="track_2" mixin="whte metl trgt"></a-entity>
-            <a-entity mixin="whte metl mrge" geometry="mergeTo: #track_2; width: 1.0000; height: 0.0254; depth: 0.0762"></a-entity>
-            <a-entity mixin="whte metl mrge" geometry="mergeTo: #track_2; primitive: cylinder; radius: 0.0127; height: 0.1016" position="-0.4400 0.0635 0.0000"></a-entity>
-            <a-entity mixin="whte metl mrge" geometry="mergeTo: #track_2; primitive: cylinder; radius: 0.0127; height: 0.1016" position=" 0.0000 0.0635 0.0000"></a-entity>
-            <a-entity mixin="whte metl mrge" geometry="mergeTo: #track_2; primitive: cylinder; radius: 0.0127; height: 0.1016" position=" 0.4400 0.0635 0.0000"></a-entity>
+            <a-entity mixin="whte metl" geometry=" width: 1.0000; height: 0.0254; depth: 0.0762"></a-entity>
+            <a-entity mixin="whte metl" geometry=" primitive: cylinder; radius: 0.0127; height: 0.1016" position="-0.4400 0.0635 0.0000"></a-entity>
+            <a-entity mixin="whte metl" geometry=" primitive: cylinder; radius: 0.0127; height: 0.1016" position=" 0.0000 0.0635 0.0000"></a-entity>
+            <a-entity mixin="whte metl" geometry=" primitive: cylinder; radius: 0.0127; height: 0.1016" position=" 0.4400 0.0635 0.0000"></a-entity>
           <a-entity id="track_lamp_4" position="-0.4400 0.1500 -0.0700" rotation="115 0 0">
             <a-entity mixin="whte metl" geometry="primitive: cone; height: 0.0889; radius-bottom: 0.0889; radius-top: 0.0381"></a-entity>
             <a-entity mixin="whte metl" geometry="primitive: cone; height: 0.0889; radius-bottom: 0.0381; radius-top: 0.0317" position="0.0000 0.0889 0.0000"></a-entity>
@@ -217,8 +211,24 @@
         <!-- WALL TEXT -->
         <a-entity id="didactic" geometry="width: 0.8000; height: 0.8000" material="src: #didactic_1" scale="1.8 1.8 0" position="2.4980 1.7 0" rotation="0 90 0"></a-entity>
 
+        <!-- CAMERA SETTINGS -->
+        <a-camera
+          fence="width:3.5; depth:1.5; x0:0; z0:0;"
+          universal-controls
+          checkpoint-controls="mode: animate">
+          <a-entity id="captive_cursor" cursor="maxDistance: 10; timeout: 500"
+            position="0 0 -0.15"
+            scale="0.002 0.002 0"
+            geometry="primitive: ring"
+            material="color: gray; opacity: 0; shader: flat">
+          </a-entity>
+        </a-camera>
 
       </a-entity>
     </a-scene>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../../js/plugins.js"></script>
+    <script src="../../js/scene.js"></script>
+
   </body>
 </html>
